@@ -1,0 +1,45 @@
+name: zzt
+version: "3.2"
+summary: ZZT
+description: |
+  ZZT is an ANSI character-based video game, released in 1991 by Tim Sweeney
+  of Potomac Computer Systems (now Epic Games).
+
+confinement: strict
+grade: stable
+
+apps:
+  zzt:
+    command: launcher
+    plugs: [home, unity7, pulseaudio, opengl]
+
+parts:
+  dosbox:
+    plugin: autotools
+    source-type: tar
+    source: http://source.dosbox.com/dosboxsvn.tgz
+    build-packages:
+      - g++
+      - make
+      - libsdl1.2-dev
+      - libpng12-dev
+      - libsdl-net1.2-dev
+      - libsdl-sound1.2-dev
+      - libasound2-dev
+  zzt:
+    plugin: dump
+    source: ./zzt.zip
+    stage-packages:
+      - libpng12-0
+      - libsdl1.2debian
+      - libsdl-net1.2
+      - libsdl-sound1.2
+      - libgl1-mesa-glx
+    prime:
+      - -share
+      - -usr/share/doc
+      - -usr/share/lintian
+      - -usr/share/man
+  integration:
+    plugin: dump
+    source: snap/scripts

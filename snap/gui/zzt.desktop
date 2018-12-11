@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=ZZT
+Comment=ZZT is an ANSI character-based video game, released in 1991 by Tim Sweeney of Potomac Computer Systems
+Icon=${SNAP}/meta/gui/zzt.png
+Exec=zzt
+Terminal=false
+Categories=Game;
