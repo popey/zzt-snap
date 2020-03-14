@@ -1,5 +1,6 @@
 name: zzt
 version: "3.2"
+base: core18
 summary: ZZT
 description: |
   ZZT is an ANSI character-based video game, released in 1991 by Tim Sweeney
@@ -22,19 +23,64 @@ parts:
       - g++
       - make
       - libsdl1.2-dev
-      - libpng12-dev
+      - libpng-dev
       - libsdl-net1.2-dev
       - libsdl-sound1.2-dev
       - libasound2-dev
+    stage-packages:
+      - libasound2
+      - libasyncns0
+      - libcaca0
+      - libflac8
+      - libgl1
+      - libglvnd0
+      - libglx0
+      - libmikmod3
+      - libogg0
+      - libopenal1
+      - libpng16-16
+      - libpulse0
+      - libsdl-net1.2
+      - libsdl-sound1.2
+      - libsdl1.2debian
+      - libsdl2-2.0-0
+      - libglu1-mesa
+      - libslang2
+      - libsndfile1
+      - libsndio6.1
+      - libspeex1
+      - libvorbis0a
+      - libvorbisenc2
+      - libvorbisfile3
+      - libwayland-client0
+      - libwayland-cursor0
+      - libwayland-egl1
+      - libx11-6
+      - libxau6
+      - libxcb1
+      - libxcursor1
+      - libxdmcp6
+      - libxext6
+      - libxfixes3
+      - libxi6
+      - libxinerama1
+      - libxkbcommon0
+      - libxrandr2
+      - libxrender1
+      - libxss1
+      - libxxf86vm1
   zzt:
     plugin: dump
-    source: ./zzt.zip
+    source: snap/local/zzt.zip
     stage-packages:
-      - libpng12-0
+      - libpng16-16
       - libsdl1.2debian
       - libsdl-net1.2
       - libsdl-sound1.2
       - libgl1-mesa-glx
+      - libglu1-mesa
+      - libslang2
+      - freeglut3
     prime:
       - -share
       - -usr/share/doc
@@ -42,4 +88,4 @@ parts:
       - -usr/share/man
   integration:
     plugin: dump
-    source: snap/scripts
+    source: snap/local/scripts
