@@ -9,6 +9,11 @@ description: |
 confinement: strict
 grade: stable
 
+architectures:
+  - build-on: amd64
+  - build-on: i386
+  - build-on: s309x
+
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
